@@ -9,123 +9,164 @@ namespace XML
 {
     public class XmlBuilder
     {
-
-        private XmlDocument xmlDoc;
-
-        static public string ControlNumber { get; set; }
-        static public string NameInsured { get; set; }
-        static public string PolicyNumber { get; set; }
-        static public string MailingAddress { get; set; }
-        static public string Carrier { get; set; }
-        static public string Underwriter { get; set; }
-        static public string OrderBy { get; set; }
-        static public string LocationAddress { get; set; }
-        static public string LocationAddress2 { get; set; }
-        static public string InspectionCoName { get; set; }
-        static public string InspectionCoPhone { get; set; }
-        static public string FieldRep { get; set; }
-        static public string DateOfSurvey { get; set; }
-        static public string OrderNumber { get; set; }
-        static public string ContactName { get; set; }
-        static public string Title { get; set; }
-        static public string PhoneNumber { get; set; }
-        static public string AgencyName { get; set; }
-        static public string RiskContactName { get; set; }
-        static public string RiskPhoneNumber { get; set; }
-        static public string TypeOfSurvey { get; set; }
-        static public string Overview { get; set; }
-        static public string exteriorOnly { get; set; }
-        static public string Revised { get; set; }
-        static public string ExtensionRequired { get; set; }
-        static public string Reason { get; set; }
-        static public string RealPropertyLimit { get; set; }
-        static public string SpecialInstructions { get; set; }
-        static public string ReportNumber { get; set; }
-        static public string LocationID { get; set; }
-
-
-        public XmlBuilder(string file)
+        private static XmlBuilder instance;
+        static private List<string> elementNames;
+        static private List<string> excludedElementNames;
+        private static XmlNodeList xmlNodes;
+        public static  XmlBuilder Instance
         {
-            xmlDoc = new XmlDocument();
-            xmlDoc.Load(file);
-            GetInspectionData();
-        }
-
-        public void GetInspectionData()
-        {
-            foreach (XmlNode xmlNode in xmlDoc.ChildNodes[0].ChildNodes[0])
+            get
             {
-                switch (xmlNode.Name)
+                if(instance == null)
                 {
-                    case "Num1":
-                        NameInsured = xmlNode.InnerText;
-                        Console.WriteLine("Name Insured: " + xmlNode.InnerText);
-                        break;
-                    case "Num2":
-                        PolicyNumber = xmlNode.InnerText;
-                        Console.WriteLine("Policy#: " + xmlNode.InnerText);
-                        break;
-                    case "Num3":
-                        ControlNumber = xmlNode.InnerText;
-                        Console.WriteLine("Control#: " + ControlNumber);
-                        break;
-                    case "Num4":
-                        MailingAddress = xmlNode.InnerText;
-                        Console.WriteLine("Mailing Address: " + xmlNode.InnerText);
-                        break;
-                    case "Num5":
-                        Carrier = xmlNode.InnerText;
-                        Console.WriteLine("Carrier: " + xmlNode.InnerText);
-                        break;
-                    case "Num6":
-                        Underwriter = xmlNode.InnerText;
-                        Console.WriteLine("Underwriter: " + xmlNode.InnerText);
-                        break;
-                    case "Num7":
-                        OrderBy = xmlNode.InnerText;
-                        Console.WriteLine("Ordered by: " + ControlNumber);
-                        break;
-                    case "Num8":
-                        LocationAddress = xmlNode.InnerText;
-                        Console.WriteLine("Location Address: " + xmlNode.InnerText);
-                        break;
-                    case "Num9":
-                        LocationAddress2 = xmlNode.InnerText;
-                        Console.WriteLine("Location Address2: " + xmlNode.InnerText);
-                        break;
-                    case "Num10":
-                        InspectionCoName = xmlNode.InnerText;
-                        Console.WriteLine("Inspection Co. Name: " + xmlNode.InnerText);
-                        break;
-                    case "Num11":
-                        InspectionCoPhone = xmlNode.InnerText;
-                        Console.WriteLine("Inspection Co. Phone#: " + xmlNode.InnerText);
-                        break;
-                    case "Num12":
-                        FieldRep = xmlNode.InnerText;
-                        Console.WriteLine("Field Rep Name: " + xmlNode.InnerText);
-                        break;
-                    case "Num13":
-                        DateOfSurvey = xmlNode.InnerText;
-                        Console.WriteLine("DateOfSurvey: " + ControlNumber);
-                        break;
-                    case "Num14":
-                        OrderNumber = xmlNode.InnerText;
-                        Console.WriteLine("OrderNumber: " + ControlNumber);
-                        break;
-                    case "ReportNumber":
-                        ReportNumber = xmlNode.InnerText;
-                        Console.WriteLine("Report#: " + xmlNode.InnerText);
-                        break;
-                    case "LocationID":
-                        LocationID = xmlNode.InnerText;
-                        Console.WriteLine("Location ID: " + xmlNode.InnerText);
-                        break;
-                    default:
-                        break;
+                    instance = new XmlBuilder();
                 }
-
+                return instance;
             }
         }
+        static public Dictionary<string, string> ElementNodes { get; private set; }
+        
+        /// <summary>
+        /// Populates ElementNodes with the selected XML's content where the element name matches a
+        /// desired case value
+        /// </summary>
+        private void populate(XmlDocument xmlDoc)
+        {
+            xmlNodes = xmlDoc.ChildNodes[0].ChildNodes;
+            for (int i = 0; i < xmlNodes.Count; i++)
+            {
+                foreach (XmlNode xmlNode in xmlNodes[i])
+                {
+                    for (int j = 0; j < elementNames.Count; j++)
+                    {
+                        if (xmlNode.Name == elementNames[j])
+                        {
+                            if (xmlNode.InnerText.Equals(""))
+                            {
+                                ElementNodes.Add(xmlNode.Name, "N/A");
+                                elementNames.RemoveAt(j);
+                                break;
+                            }
+                            else
+                            {
+                                ElementNodes.Add(xmlNode.Name, xmlNode.InnerText);
+                                elementNames.Remove(elementNames[j]);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            excludedElementNames = elementNames;
+            for (int k = 0; k < excludedElementNames.Count; k++)
+                ElementNodes.Add(elementNames[k], "N/A");
+            
+        }
+        /// <summary>
+        /// Iterates through a given IMS inspection XML file
+        /// </summary>
+        /// <param name="xmlfile"></param>
+        public void GetInspectionData(string xmlfile)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(xmlfile);
+            ElementNodes = new Dictionary<string, string>();
+            InitializeInspectionsElements();
+            try
+            {
+                populate(xmlDoc); 
+            }
+            catch(Exception ex)
+            {
+                ErrorExceptions.OnException(ex.Message);
+
+            }   
+        }
+        private void InitializeInspectionsElements()
+        {
+            elementNames = new List<string>();
+            elementNames.Add("Num1");
+            elementNames.Add("Num2");
+            elementNames.Add("Num3");
+            elementNames.Add("Num4");
+            elementNames.Add("Num5");
+            elementNames.Add("Num6");
+            elementNames.Add("Num7");
+            elementNames.Add("Num8");
+            elementNames.Add("Num9");
+            elementNames.Add("Num10");
+            elementNames.Add("Num11");
+            elementNames.Add("Num12");
+            elementNames.Add("Num13");
+            elementNames.Add("Num14");
+            elementNames.Add("Num15");
+            elementNames.Add("Num16");
+            elementNames.Add("Num17");
+            elementNames.Add("Num18");
+            elementNames.Add("Num19");
+            elementNames.Add("Num20");
+            //Survey
+            elementNames.Add("Survey1");
+            elementNames.Add("Survey2");
+            elementNames.Add("Survey3");
+            elementNames.Add("Survey4");
+            elementNames.Add("Survey5");
+            elementNames.Add("Survey6");
+            elementNames.Add("Survey7");
+            elementNames.Add("Survey8");
+            //Recs
+            elementNames.Add("Recs1");
+            elementNames.Add("Recs2");
+            elementNames.Add("Recs3");
+            //Opinions
+            elementNames.Add("Opinion1");
+            elementNames.Add("Opinion2");
+            elementNames.Add("Opinion3");
+            //Loss
+            elementNames.Add("Loss1");
+            elementNames.Add("Loss2");
+            //Ops
+            elementNames.Add("Ops1");
+            elementNames.Add("Ops2");
+            elementNames.Add("Ops3");
+            elementNames.Add("Ops4");
+            elementNames.Add("Ops5");
+            elementNames.Add("Ops6");
+            elementNames.Add("Ops7");
+            elementNames.Add("Ops8");
+            elementNames.Add("Ops9");
+            elementNames.Add("Ops10");
+            elementNames.Add("Ops11");
+            elementNames.Add("Ops12");
+            elementNames.Add("Ops13");
+            elementNames.Add("Ops14");
+            elementNames.Add("Ops15");
+            elementNames.Add("Ops16");
+            elementNames.Add("Ops17");
+            elementNames.Add("Ops18");
+            elementNames.Add("Ops19");
+            elementNames.Add("Ops20");
+            elementNames.Add("Ops21");
+            elementNames.Add("Ops22");
+            elementNames.Add("Ops23");
+            elementNames.Add("Ops24");
+            elementNames.Add("Ops25");
+            elementNames.Add("Ops26");
+            elementNames.Add("Ops27");
+            elementNames.Add("Ops28");
+            //Building Information
+            elementNames.Add("Bld1");
+            //Common Hazards
+            //Special Hazards
+            //Protection/Security
+            //Neighboring Exposures
+            //Perils
+            //Cooking
+            //Sprinkler
+            //General Liability
+
+
+        }
+
     }
 }
