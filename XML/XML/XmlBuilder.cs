@@ -24,8 +24,35 @@ namespace XML
                 return instance;
             }
         }
-        static public Dictionary<string, string> ElementNodes { get; private set; }
         
+        static public Dictionary<string, string> ElementNodes { get; private set; }
+        /// <summary>
+        /// Assigns the xmlNodes content to the ElementNodes dictionary and removes the found elements
+        /// from the elementName list
+        /// </summary>
+        /// <param name="xmlNode"></param>
+        private void GetElementContent(XmlNode xmlNode)
+        {
+            for (int j = 0; j < elementNames.Count; j++)
+            {
+                if (xmlNode.Name == elementNames[j])
+                {
+                    if (xmlNode.InnerText.Equals(""))
+                    {
+                        ElementNodes.Add(xmlNode.Name, string.Format("<{0}>",elementNames[j]));
+                        //elementNames.RemoveAt(j);
+                        elementNames.Remove(elementNames[j]);
+                        break;
+                    }
+                    else
+                    {
+                        ElementNodes.Add(xmlNode.Name, xmlNode.InnerText);
+                        elementNames.Remove(elementNames[j]);
+                        break;
+                    }
+                }
+            }
+        }
         /// <summary>
         /// Populates ElementNodes with the selected XML's content where the element name matches a
         /// desired case value
@@ -37,29 +64,12 @@ namespace XML
             {
                 foreach (XmlNode xmlNode in xmlNodes[i])
                 {
-                    for (int j = 0; j < elementNames.Count; j++)
-                    {
-                        if (xmlNode.Name == elementNames[j])
-                        {
-                            if (xmlNode.InnerText.Equals(""))
-                            {
-                                ElementNodes.Add(xmlNode.Name, "N/A");
-                                elementNames.RemoveAt(j);
-                                break;
-                            }
-                            else
-                            {
-                                ElementNodes.Add(xmlNode.Name, xmlNode.InnerText);
-                                elementNames.Remove(elementNames[j]);
-                                break;
-                            }
-                        }
-                    }
+                    GetElementContent(xmlNode);
                 }
             }
             excludedElementNames = elementNames;
             for (int k = 0; k < excludedElementNames.Count; k++)
-                ElementNodes.Add(elementNames[k], "N/A");
+                ElementNodes.Add(elementNames[k], string.Format("<{0}>", elementNames[k]));
             
         }
         /// <summary>
@@ -71,7 +81,7 @@ namespace XML
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(xmlfile);
             ElementNodes = new Dictionary<string, string>();
-            InitializeInspectionsElements();
+            BuildRegularInspectionForm();
             try
             {
                 populate(xmlDoc); 
@@ -82,90 +92,121 @@ namespace XML
 
             }   
         }
-        private void InitializeInspectionsElements()
+        
+        
+        
+        
+        
+        /// <summary>
+        /// Initialize Inspections Elements
+        /// </summary>
+        private void InitializeInspectionsElements(int nums, int Survey, int Recs, 
+            int Opinion, int Loss, int Ops, int Bld,int Ch,int Sh,int Prot,
+            int Ne,int Peril,int Cook, int Sprink, int Gl)
         {
             elementNames = new List<string>();
-            elementNames.Add("Num1");
-            elementNames.Add("Num2");
-            elementNames.Add("Num3");
-            elementNames.Add("Num4");
-            elementNames.Add("Num5");
-            elementNames.Add("Num6");
-            elementNames.Add("Num7");
-            elementNames.Add("Num8");
-            elementNames.Add("Num9");
-            elementNames.Add("Num10");
-            elementNames.Add("Num11");
-            elementNames.Add("Num12");
-            elementNames.Add("Num13");
-            elementNames.Add("Num14");
-            elementNames.Add("Num15");
-            elementNames.Add("Num16");
-            elementNames.Add("Num17");
-            elementNames.Add("Num18");
-            elementNames.Add("Num19");
-            elementNames.Add("Num20");
-            //Survey
-            elementNames.Add("Survey1");
-            elementNames.Add("Survey2");
-            elementNames.Add("Survey3");
-            elementNames.Add("Survey4");
-            elementNames.Add("Survey5");
-            elementNames.Add("Survey6");
-            elementNames.Add("Survey7");
-            elementNames.Add("Survey8");
-            //Recs
-            elementNames.Add("Recs1");
-            elementNames.Add("Recs2");
-            elementNames.Add("Recs3");
-            //Opinions
-            elementNames.Add("Opinion1");
-            elementNames.Add("Opinion2");
-            elementNames.Add("Opinion3");
-            //Loss
-            elementNames.Add("Loss1");
-            elementNames.Add("Loss2");
-            //Ops
-            elementNames.Add("Ops1");
-            elementNames.Add("Ops2");
-            elementNames.Add("Ops3");
-            elementNames.Add("Ops4");
-            elementNames.Add("Ops5");
-            elementNames.Add("Ops6");
-            elementNames.Add("Ops7");
-            elementNames.Add("Ops8");
-            elementNames.Add("Ops9");
-            elementNames.Add("Ops10");
-            elementNames.Add("Ops11");
-            elementNames.Add("Ops12");
-            elementNames.Add("Ops13");
-            elementNames.Add("Ops14");
-            elementNames.Add("Ops15");
-            elementNames.Add("Ops16");
-            elementNames.Add("Ops17");
-            elementNames.Add("Ops18");
-            elementNames.Add("Ops19");
-            elementNames.Add("Ops20");
-            elementNames.Add("Ops21");
-            elementNames.Add("Ops22");
-            elementNames.Add("Ops23");
-            elementNames.Add("Ops24");
-            elementNames.Add("Ops25");
-            elementNames.Add("Ops26");
-            elementNames.Add("Ops27");
-            elementNames.Add("Ops28");
-            //Building Information
-            elementNames.Add("Bld1");
+            //Nums = 20
+            for (int i = 0; i < nums; i++)
+            {
+                elementNames.Add(string.Format("Num{0}", i.ToString()));
+            }   
+            
+            //Survey = 8
+            for (int k = 1; k < Survey; k++)
+            {
+                elementNames.Add(string.Format("Survey{0}", k.ToString()));
+            }
+            //Recs = 3
+            for (int l = 1; l < Recs; l++)
+            {
+                elementNames.Add(string.Format("Recs{0}", l.ToString()));
+            }
+
+            //Opinions = 3
+            for (int m = 1; m < Opinion; m++)
+            {
+                elementNames.Add(string.Format("Opinion{0}", m.ToString()));
+            }
+
+            //Loss = 2
+            for (int n = 1; n < Loss; n++)
+            {
+                elementNames.Add(string.Format("Loss{0}", n.ToString()));
+            }
+            //Ops = 28
+            for (int o = 1; o < Ops; o++)
+            {
+                elementNames.Add(string.Format("Ops{0}", o.ToString()));
+            }
+            //Building Information = 45
+            for (int i = 1; i < Bld; i++)
+            {
+                elementNames.Add(string.Format("Bld{0}", i.ToString()));
+            }
             //Common Hazards
+            for (int i = 1; i < Ch; i++)
+            {
+                elementNames.Add(string.Format("CH{0}", i.ToString()));
+            }
             //Special Hazards
+            for (int i = 1; i < Sh; i++)
+            {
+                elementNames.Add(string.Format("SH{0}", i.ToString()));
+            }
+
             //Protection/Security
+            for (int i = 1; i < Prot; i++)
+            {
+                elementNames.Add(string.Format("Prot{0}", i.ToString());
+            }
             //Neighboring Exposures
+            for(int i = 1; i < Ne; i++)
+            {
+                elementNames.Add(string.Format("NE{0}", i.ToString()));
+            }
             //Perils
+            for (int i = 1; i < Peril; i++)
+            {
+                elementNames.Add(string.Format("Peril{0}", i.ToString()));
+            }
             //Cooking
+            for (int i = 1; i < Cook; i++)
+            {
+                elementNames.Add(string.Format("Cook{0}", i.ToString()));
+            }
             //Sprinkler
+            for (int i = 1; i < Sprink; i++)
+            {
+                elementNames.Add(string.Format("Sprink{0}", i.ToString()));
+            }
             //General Liability
+            for (int i = 1; i < Gl; i++)
+            {
+                elementNames.Add(string.Format("GL{0}", i.ToString()));
+            }
 
 
+
+        }
+        private void BuildRegularInspectionForm()
+        {
+            int nums = 20;
+            int Survey = 8;
+            int recs = 3;
+            int opinion =3;
+            int loss =2;
+            int ops = 28;
+            int bld = 45;
+            int ch = 47;
+            int sh = 13;
+            int prot = 39;
+            int ne = 27;
+            int peril = 11;
+            int cook = 52;
+            int sprink = 31;
+            int gl = 95;
+
+            InitializeInspectionsElements(nums, Survey, recs, opinion, loss, ops, bld,ch, sh,prot,ne,peril,cook,sprink,gl);
         }
 
     }

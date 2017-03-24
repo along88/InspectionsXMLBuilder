@@ -14,7 +14,7 @@ namespace XML
         private object fileName = @"C:\Users\along\Desktop\Inspections\WKFC  Inspection format with data elements.doc";
         private Application wordApp;
         private Document inspectionDoc;
-        private int DebugTableCount = 13;
+        private int DebugTableCount = 14;
 
         public InspectionForm()
         {
@@ -97,6 +97,46 @@ namespace XML
             Console.WriteLine("Complete!");
             wordApp.Visible = true;
         }
+
+        private void VerticallyAlignedTable(int tableID)
+        {
+            Table table = inspectionDoc.Tables[tableID];
+            Range range = table.Range;
+            for (int j = 1; j < range.Cells.Count; j++)
+            {
+
+                foreach (KeyValuePair<string, string> key in XmlBuilder.ElementNodes)
+                {
+                    if (range.Cells[j].Range.Text.Contains(string.Format("<{0}>", key.Key)))
+                    {
+                        range.Cells[j].Range.Text = key.Value;
+                        Console.Write('.');
+                        break;
+                    }
+                }
+            }
+
+        }
+        private void NormalTable(int tableID)
+        {
+            foreach (Row item in inspectionDoc.Tables[tableID].Rows)
+            {
+                
+                foreach (Cell cell in item.Cells)
+                {
+                    foreach (KeyValuePair<string, string> key in XmlBuilder.ElementNodes)
+                    {
+                        if (cell.Range.Text.Contains(string.Format("<{0}>", key.Key)))
+                        {
+                            cell.Range.Text = key.Value;
+                            Console.Write('.');
+                            break;
+                        }
+
+                    }
+                }
+            }
+        }
         /// <summary>
         /// Fills in the inspection form using the XmlBuilders dictionary
         /// </summary>
@@ -104,28 +144,18 @@ namespace XML
         /// <param name="wordApp"></param>
         private void FillInspectionForm()
         {
+
+
             try
             {
-                for (int i = 1; i < DebugTableCount; i++)
+                for (int i = 1; i < inspectionDoc.Tables.Count ; i++)
                 {
-                    foreach (Row item in inspectionDoc.Tables[i].Rows)
+                    if(i == 13)
                     {
-
-                        foreach (Cell cell in item.Cells)
-                        {
-
-                            foreach (KeyValuePair<string,string> key in XmlBuilder.ElementNodes)
-                            {
-                                if(cell.Range.Text.Contains(string.Format("<{0}>",key.Key)))
-                                {
-                                    cell.Range.Text = key.Value;
-                                    Console.Write('.');
-                                    break;
-                                }
-                                    
-                            }
-                       }
+                        VerticallyAlignedTable(i);
+                        break;
                     }
+                    NormalTable(i);
                 }
                 Console.WriteLine();
                 inspectionDoc.Activate();
