@@ -137,6 +137,25 @@ namespace XML
                 }
             }
         }
+        //private void FillMissingTableItems(int tableID)
+        //{
+        //    foreach (Row item in inspectionDoc.Tables[tableID].Rows)
+        //    {
+
+        //        foreach (Cell cell in item.Cells)
+        //        {
+        //            foreach (KeyValuePair<string, string> key in XmlBuilder.ElementNodes)
+        //            {
+        //                if (cell.Range.Text.Contains("<"))
+        //                {
+        //                    cell.Range.Text = "Not Found";
+        //                    break;
+        //                }
+
+        //            }
+        //        }
+        //    }
+        //}
         /// <summary>
         /// Fills in the inspection form using the XmlBuilders dictionary
         /// </summary>
@@ -150,13 +169,19 @@ namespace XML
             {
                 for (int i = 1; i < inspectionDoc.Tables.Count ; i++)
                 {
-                    if(i == 13)
+                    if (i == 13 || i == 19)
                     {
                         VerticallyAlignedTable(i);
-                        break;
+                        continue;
                     }
-                    NormalTable(i);
+                    else
+                    {
+                        NormalTable(i);
+                        continue;
+                    }
+                   
                 }
+                
                 Console.WriteLine();
                 inspectionDoc.Activate();
             }

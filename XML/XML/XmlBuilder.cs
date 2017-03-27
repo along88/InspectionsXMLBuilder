@@ -157,7 +157,7 @@ namespace XML
             //Protection/Security
             for (int i = 1; i < Prot; i++)
             {
-                elementNames.Add(string.Format("Prot{0}", i.ToString());
+                elementNames.Add(string.Format("Prot{0}", i.ToString()));
             }
             //Neighboring Exposures
             for(int i = 1; i < Ne; i++)
@@ -188,6 +188,11 @@ namespace XML
 
 
         }
+
+
+        /// <summary>
+        /// TOD: Make this a class in and of itself
+        /// </summary>
         private void BuildRegularInspectionForm()
         {
             int nums = 20;
