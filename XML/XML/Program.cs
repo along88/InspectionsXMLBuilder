@@ -16,7 +16,6 @@ namespace XML
         {
             try
             {
-                
                 InspectionForm inspectionForm = new InspectionForm();
             }
             catch (Exception ex)

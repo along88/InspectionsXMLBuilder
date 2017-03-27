@@ -27,7 +27,6 @@ namespace XML
                 return instance;
             }
         }
-        
         public void NewFile()
         {
             file = new OpenFileDialog();

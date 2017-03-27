@@ -44,11 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\XmlModel.cs" />
+    <Compile Include="Presenter\XmlPresenter.cs" />
     <Compile Include="Tools\ErrorExceptions.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="InspectionForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\IView.cs" />
+    <Compile Include="Views\XmlView.cs" />
     <Compile Include="XmlBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
