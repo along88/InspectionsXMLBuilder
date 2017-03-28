@@ -11,14 +11,14 @@ namespace XML
     public class InspectionForm
     {
         private object missing = System.Reflection.Missing.Value;
-        private object fileName = @"C:\Users\along\Desktop\Inspections\WKFC  Inspection format with data elements.doc";
+        private object fileName = "";
         private Application wordApp;
         private Document inspectionDoc;
+        private Dictionary<string, string> foundElements;
 
-        public InspectionForm()
+        public InspectionForm(string form)
         {
-            //CreateDocument();
-            FileManager.Instance.NewFile();
+            GetFileName(form);
             InitializeInspectionForm();
         }
         /// <summary>
@@ -30,37 +30,13 @@ namespace XML
             wordApp.Visible = false;
             inspectionDoc = new Document();
             inspectionDoc = wordApp.Documents.Open(ref fileName, ReadOnly: false);
+            foundElements = XmlBuilder.ElementNodes;
             Console.Write("Debugger: Populating Word Document."+ Environment.NewLine+"Please Wait.");
             FillInspectionForm();
             Console.WriteLine("Complete!");
             wordApp.Visible = true;
         }
-        private void VerticallyAlignedTable(int tableID)
-        {
-            Table table = inspectionDoc.Tables[tableID];
-            Range range = table.Range;
-            double percentage = 0;
-            int pos = 2;
-            //Stopwatch sw = Stopwatch.StartNew();
-           
-            for (int j = 1; j < range.Cells.Count; j++)
-            {
-                if (range.Cells[j].Range.Text[0] == '<')
-                {
-                    foreach (KeyValuePair<string,string> key in XmlBuilder.ElementNodes)
-                    {
-                        if (range.Cells[j].Range.Text.Contains(String.Format("<{0}>", key.Key)))
-                            range.Cells[j].Range.Text = key.Value;
-                        
-                    }
-                    
-                }
-
-
-               // Console.WriteLine(sw.ElapsedMilliseconds.ToString());
-            }
-            //sw.Stop();
-         }
+        
         /// <summary>
         /// Fills in the inspection form using the XmlBuilders dictionary
         /// </summary>
@@ -68,12 +44,32 @@ namespace XML
         /// <param name="wordApp"></param>
         private void FillInspectionForm()
         {
+            int percentage;
             try
             {
                 for (int i = 0; i < inspectionDoc.Tables.Count; i++)
                 {
-                    VerticallyAlignedTable(i+1);
-                 }
+                    foreach (Cell cell in inspectionDoc.Tables[i+1].Range.Cells)
+                    {
+                        if (cell.Range.Text[0].Equals('<'))
+                        {
+                            foreach (KeyValuePair<string, string> key in foundElements)
+                            {
+                                if (cell.Range.Text.Contains(String.Format("<{0}>", key.Key)))
+                                {
+                                    cell.Range.Text = key.Value;
+                                    foundElements.Remove(key.Key);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    Console.SetCursorPosition(0, 2);
+                    percentage = (i * 100/inspectionDoc.Tables.Count);
+                    Console.Write(percentage.ToString()+"%");
+                }
+                Console.SetCursorPosition(0, 2);
+                Console.Write("100%");
                 Console.WriteLine();
                 inspectionDoc.Activate();
             }
@@ -83,7 +79,37 @@ namespace XML
                 inspectionDoc.Application.Quit(ref missing, ref missing, ref missing);
             }
         }
-
-        
+        private void GetFileName(string form)
+        {
+            switch (form)
+            {
+                case "inspection format":
+                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\WKFCInspectionformat.doc";
+                    break;
+                case "im builders risk":
+                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\imbuildersriskdataelements.doc";
+                    break;
+                case "GL Rec Letter":
+                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\GLRecLetter.doc";
+                    break;
+                case "BI Addendum":
+                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\BIADDENDUM.doc";
+                    break;
+                case "Operations Addendum":
+                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\OPERATIONSADDENDUM.doc";
+                    break;
+                case "Property Rec Letter":
+                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\PropertyRecLetter.doc";
+                    break;
+                case "Rec Check Inspection Form":
+                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\RECCHECKINSPECTIONFORM.docx";
+                    break;
+                case "Wind Addendum":
+                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\WindAddendum.docx";
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
