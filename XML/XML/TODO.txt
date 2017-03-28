@@ -1,10 +1,10 @@
 TODO  LIST:
-	Ensure different XML files will behave in same manner
+	(RESOLVED)Ensure different XML files will behave in same manner
 		Note: If all xml's have the same element id there should be no issue populating any given inspection form tempalte
-	Populate the fields in the next block of items
+	(RESOLVED)Populate the fields in the next block of items
 	Loop program back to showdialog box if a non xml file is selected
-	Code to iterate throug
-	Will have to map out each page and the XML values it wants
+	(RESOLVED: Concept scrapped in favor of better implementation)Code to iterate through
+		Will have to map out each page and the XML values it wants
 	
 	Bugs:
 	(RESOLVED)does not work with a second xml, exception errors suggest the second inspection xml has a different starting index
