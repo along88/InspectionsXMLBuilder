@@ -52,7 +52,6 @@
     <Compile Include="XmlBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="BIADDENDUM.doc" />
     <None Include="GLRecLetter.doc" />
     <None Include="imbuildersriskdataelements.doc" />
@@ -97,6 +96,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Inspection3.xml" />
+    <Content Include="Inspection4.xml" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,7 +14,6 @@ namespace XML
         [STAThread]
         static void Main(string[] args)
         {
-            
             try
             {
                 FileManager.Instance.NewFile();
@@ -28,43 +27,63 @@ namespace XML
         }
         static string RequestForm()
         {
-            Console.WriteLine("Addendum Type:");
-            Console.WriteLine("1. Inspection Format with Data Elemnts \n2. IM - Builders Risk - Data Elements \n3. GL Rec Letter \n4. BI Addendum \n5. Operations Addendum \n6. Property Rec Letter \n7. Rec Check Inspection Form \n8. Wind Addendum");
-            string response = Console.ReadLine();
+            bool selecting = true;
             string formType = "";
-            switch (response)
+            while (selecting)
             {
-                case "1":
-                    formType = "inspection format";
-                    break;
-                case "2":
-                    formType = "im builders risk";
-                    break;
-                case "3":
-                    formType = "GL Rec Letter";
-                    break;
-                case "4":
-                    formType = "BI Addendum";
-                    break;
-                case "5":
-                    formType = "Operations Addendum";
-                    break;
-                case "6":
-                    formType = "Property Rec Letter";
-                    break;
-                case "7":
-                    formType = "Rec Check Inspection Form";
-                    break;
-                case "8":
-                    formType = "Wind Addendum";
-                    break;
-                default:
-                    Console.WriteLine("Please pick a corresponding number");
-                    break;
+                Console.WriteLine("Addendum Type:");
+                Console.WriteLine("1. Inspection Format \n2. IM - Builders Risk \n3. GL Rec Letter \n4. BI Addendum \n5. Operations Addendum \n6. Property Rec Letter \n7. Rec Check Inspection Form \n8. Wind Addendum");
+                string response = Console.ReadLine();
+                
+                switch (response)
+                {
+                    case "1":
+                        formType = "inspection format";
+                        Console.Clear();
+                        selecting = false;
+                        break;
+                    case "2":
+                        formType = "im builders risk";
+                        Console.Clear();
+                        selecting = false;
+                        break;
+                    case "3":
+                        formType = "GL Rec Letter";
+                        Console.Clear();
+                        selecting = false;
+                        break;
+                    case "4":
+                        formType = "BI Addendum";
+                        Console.Clear();
+                        selecting = false;
+                        break;
+                    case "5":
+                        formType = "Operations Addendum";
+                        Console.Clear();
+                        selecting = false;
+                        break;
+                    case "6":
+                        formType = "Property Rec Letter";
+                        Console.Clear();
+                        selecting = false;
+                        break;
+                    case "7":
+                        formType = "Rec Check Inspection Form";
+                        Console.Clear();
+                        selecting = false;
+                        break;
+                    case "8":
+                        formType = "Wind Addendum";
+                        Console.Clear();
+                        selecting = false;
+                        break;
+                    default:
+                        ErrorExceptions.OnException("Please pick a corresponding number");
+                        Console.Clear();
+                        break;
+                }
             }
-            Console.Clear();
             return formType;
-
         }
     }
 }

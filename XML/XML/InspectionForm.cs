@@ -31,7 +31,7 @@ namespace XML
             inspectionDoc = new Document();
             inspectionDoc = wordApp.Documents.Open(ref fileName, ReadOnly: false);
             foundElements = XmlBuilder.ElementNodes;
-            Console.Write("Debugger: Populating Word Document."+ Environment.NewLine+"Please Wait.");
+            Console.Write("Building Document"+ Environment.NewLine+"Please Wait.");
             FillInspectionForm();
             Console.WriteLine("Complete!");
             wordApp.Visible = true;
@@ -53,9 +53,9 @@ namespace XML
                     {
                         if (cell.Range.Text[0].Equals('<'))
                         {
-                            foreach (KeyValuePair<string, string> key in foundElements)
+                            foreach (var key in foundElements)
                             {
-                                if (cell.Range.Text.Contains(String.Format("<{0}>", key.Key)))
+                                if (cell.Range.Text.Contains(String.Format("{0}", key.Key)))
                                 {
                                     cell.Range.Text = key.Value;
                                     foundElements.Remove(key.Key);
@@ -72,6 +72,7 @@ namespace XML
                 Console.Write("100%");
                 Console.WriteLine();
                 inspectionDoc.Activate();
+               
             }
             catch (Exception ex)
             {
