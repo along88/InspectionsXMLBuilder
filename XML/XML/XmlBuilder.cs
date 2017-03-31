@@ -29,25 +29,6 @@ namespace XML
         }
         static public Dictionary<string, string> ElementNodes { get; private set; }
         
-        private static bool IsValidXmlString(string text)
-        {
-            try
-            {
-                XmlConvert.VerifyXmlChars(text);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-        private static string RemoveInvalidXmlChars(string text)
-        {
-            var validXmlChars = text.Where(ch => XmlConvert.IsXmlChar(ch)).ToArray();
-            return new string(validXmlChars);
-        }
-
-
         /// <summary>
         /// Populates ElementNodes with the selected XML's content where the element name matches a
         /// desired case value
@@ -75,11 +56,21 @@ namespace XML
         /// <param name="xmlfile"></param>
         public void GetInspectionData(string xmlfile)
         {
+            #region Archive
+            //XmlDocument xmlDoc = new XmlDocument();
 
+            //xmlDoc.Load(xmlfile);
 
-            //var xmlReaderSettings = new XmlReaderSettings { CheckCharacters = false };
-            //xmlReaderSettings.DtdProcessing = DtdProcessing.Parse;
-            //xmlReaderSettings.Async = true;
+            //ElementNodes = new Dictionary<string, string>();
+            //try
+            //{
+            //    populate(xmlDoc); 
+            //}
+            //catch(XmlException ex)
+            //{
+            //    ErrorExceptions.OnException(ex.Message);
+            //}   
+            #endregion
             XmlReader xmlReader = XmlReader.Create(xmlfile);
             key = new List<string>();
             value = new List<string>();
@@ -119,68 +110,23 @@ namespace XML
                         }
                         break;
                     case XmlNodeType.Text:
-                        if (xmlReader.Value == "")
-                            value.Add("EMPTY!");
+                        if (!string.IsNullOrEmpty(xmlReader.Value))
+                        {
+                            string unxml = xmlReader.Value;
+                            //replace entities with literal values
+                            unxml = unxml.Replace("&amp;", "&");
+                            value.Add(string.Format("{0}", unxml));
+                        }
                         else
-                            value.Add(string.Format("{0}", xmlReader.Value));
+                        {
+
+                            value.Add("EMPTY!");
+                        }
                         break;
                 }
             }
             for (int i = 0; i < value.Count; i++)
                 ElementNodes.Add(key[i], value[i]);
-
-
-
-
-
-
-
-
-            //var xmlDoc = new XmlDocument();
-            //var xmlReaderSettings = new XmlReaderSettings { CheckCharacters = false };
-            //using (var stringReader = new StringReader(xmlfile))
-            //{
-            //    using (var xmlReader = XmlReader.Create(stringReader, xmlReaderSettings))
-            //    {
-            //        xmlDoc.Load(xmlReader);
-
-            //    }
-            //}
-            //populate(xmlDoc);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //XmlDocument xmlDoc = new XmlDocument();
-
-            //xmlDoc.Load(xmlfile);
-
-            //ElementNodes = new Dictionary<string, string>();
-            //try
-            //{
-            //    populate(xmlDoc); 
-            //}
-            //catch(XmlException ex)
-            //{
-            //    ErrorExceptions.OnException(ex.Message);
-            //}   
-        }
-
-
-        public static string CleanInvalidXmlChars(string text)
-        {
-            string re = @"[&\^\x09\x0A\x0D\x20-\xD7FF\xE000-\xFFFD\x10000-x10FFFF]";
-            return Regex.Replace(text, re, "");
-        }
+            }
     }
 }

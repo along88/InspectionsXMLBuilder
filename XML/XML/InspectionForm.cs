@@ -10,19 +10,20 @@ namespace XML
 {
     public class InspectionForm
     {
-        private object missing = System.Reflection.Missing.Value;
-        private object fileName = "";
-        private Application wordApp;
+        private object missing = System.Reflection.Missing.Value; 
+        private object fileName = ""; //filename of the given word document
+        private Application wordApp; 
         private Document inspectionDoc;
-        private Dictionary<string, string> foundElements;
+        private Dictionary<string, string> foundElements; //reference to XmlBuilder's dictionary
 
         public InspectionForm(string form)
         {
-            GetFileName(form);
+            GetFileName(form); 
             InitializeInspectionForm();
         }
+       
         /// <summary>
-        /// Initializes a Inspect Form Word Document and populates it's fields with the xml data
+        /// Initializes Word Application and Fill it's content with the XML dictionary
         /// </summary>
         private void InitializeInspectionForm()
         {
@@ -80,6 +81,11 @@ namespace XML
                 inspectionDoc.Application.Quit(ref missing, ref missing, ref missing);
             }
         }
+
+        /// <summary>
+        /// Loads the specified Inspection Form Template
+        /// </summary>
+        /// <param name="form"></param>
         private void GetFileName(string form)
         {
             switch (form)
