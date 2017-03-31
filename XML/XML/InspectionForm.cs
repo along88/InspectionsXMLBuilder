@@ -15,7 +15,7 @@ namespace XML
         private Application wordApp; 
         private Document inspectionDoc;
         private Dictionary<string, string> foundElements; //reference to XmlBuilder's dictionary
-
+        private Dictionary<string, string> foundElements2;
         public InspectionForm(string form)
         {
             GetFileName(form); 
@@ -61,6 +61,19 @@ namespace XML
                                     cell.Range.Text = key.Value;
                                     foundElements.Remove(key.Key);
                                     break;
+                                }
+                            }
+                            if(foundElements.Count >= 249)
+                            {
+                                foundElements2 = XmlBuilder.ElementNodes2;
+                                foreach (var key in foundElements2)
+                                {
+                                    if (cell.Range.Text.Contains(String.Format("{0}", key.Key)))
+                                    {
+                                        cell.Range.Text = key.Value;
+                                        foundElements.Remove(key.Key);
+                                        break;
+                                    }
                                 }
                             }
                         }
