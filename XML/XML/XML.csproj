@@ -52,8 +52,14 @@
     <Compile Include="XmlBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="WKFC  Inspection format with data elements.doc" />
+    <None Include="BIADDENDUM.doc" />
+    <None Include="GLRecLetter.doc" />
+    <None Include="imbuildersriskdataelements.doc" />
+    <None Include="OPERATIONSADDENDUM.doc" />
+    <None Include="PropertyRecLetter.doc" />
+    <None Include="RECCHECKINSPECTIONFORM.docx" />
+    <None Include="WindAddendum.docx" />
+    <None Include="WKFCInspectionformat.doc" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
@@ -89,6 +95,8 @@
     <Content Include="Inspection2.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Inspection3.xml" />
+    <Content Include="Inspection4.xml" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
