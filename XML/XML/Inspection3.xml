@@ -1,0 +1,501 @@
+﻿ <InspectionData>
+   <WKFC_InspectionData>
+    <VendorID>23</VendorID>
+    <ReportNumber>524961</ReportNumber>
+    <LocationID>3685664</LocationID>
+    <Price>125.5000</Price>
+    <Num1>Iuliano Towers LLC</Num1>
+    <Num2>99781138-04</Num2>
+    <Num3>1075766</Num3>
+    <Num4 />
+    <Num5>Chubb Custom Insurance Company</Num5>
+    <Num6>Kilhenny, Bryant</Num6>
+    <Num7>TK-re Zhang, Echo</Num7>
+    <Num8>679 4th Avenue Brooklyn NY 11232</Num8>
+    <Num9 />
+    <Num10>Reasearch Specialist Inc.</Num10>
+    <Num11>1-800-541-5496</Num11>
+    <Num12>Facility Management Advisors</Num12>
+    <Num13>12/15/16</Num13>
+    <Num14>524961</Num14>
+    <Num15>Frankie Iuliano</Num15>
+    <Num16 />
+    <Num17>347-694-2259</Num17>
+    <Num18>Iuliano Towers LLC</Num18>
+    <Num19>Eli Abemayor</Num19>
+    <Num20>914-683-1110</Num20>
+  </WKFC_InspectionData>
+   <WKFC_InspectionData_SurveyInfo>
+    <Survey1>Property</Survey1>
+    <Survey2>No</Survey2>
+    <Survey3>No</Survey3>
+    <Survey4>No</Survey4>
+    <Survey5>No</Survey5>
+    <Survey6>Other</Survey6>
+    <Survey7>UD</Survey7>
+    <Survey8>Risk is an 8 story mixed commercial/residential building with a total of 23 units. There are 22 apartment units and 1 commercial unit. The commercial unit operates as a candy store.</Survey8>
+  </WKFC_InspectionData_SurveyInfo>
+    <WKFC_InspectionData_AddnandCATPerils>
+    <Peril1>No</Peril1>
+    <Peril2>No</Peril2>
+    <Peril3>No</Peril3>
+    <Peril4>No</Peril4>
+    <Peril5>No</Peril5>
+    <Peril6>No</Peril6>
+    <Peril7>No</Peril7>
+    <Peril8>No</Peril8>
+    <Peril9>No</Peril9>
+    <Peril10>No</Peril10>
+    <Peril11>N/A</Peril11>
+  </WKFC_InspectionData_AddnandCATPerils>
+   <WKFC_InspectionData_Misc>
+    <Misc1>N/A</Misc1>
+  </WKFC_InspectionData_Misc>
+   <WKFC_InspectionData_BldgInfo>
+    <Bld1>0</Bld1>
+    <Bld2>P</Bld2>
+    <Bld3>0</Bld3>
+    <Bld4>0</Bld4>
+    <Bld5>100</Bld5>
+    <Bld6>0</Bld6>
+    <Bld7>0</Bld7>
+    <Bld8>8</Bld8>
+    <Bld9>1st floor commercial, rest are residential</Bld9>
+    <Bld10>2009</Bld10>
+    <Bld11>Assessor's</Bld11>
+    <Bld12>1</Bld12>
+    <Bld13 />
+    <Bld14>0</Bld14>
+    <Bld15 />
+    <Bld16>Masonry</Bld16>
+    <Bld17>Built-up</Bld17>
+    <Bld18 />
+    <Bld19>2009</Bld19>
+    <Bld20>new roof</Bld20>
+    <Bld21>Satisfactory</Bld21>
+    <Bld22 />
+    <Bld23>Concrete</Bld23>
+    <Bld24>Yes</Bld24>
+    <Bld25>Satisfactory</Bld25>
+    <Bld26>Concrete</Bld26>
+    <Bld27>Closed</Bld27>
+    <Bld28 />
+    <Bld29>Yes</Bld29>
+    <Bld30>Basement used for storage and utilities</Bld30>
+    <Bld31>No</Bld31>
+    <Bld32 />
+    <Bld33>0</Bld33>
+    <Bld34>0</Bld34>
+    <Bld35>33720</Bld35>
+    <Bld36>0</Bld36>
+    <Bld37>33000</Bld37>
+    <Bld38>0</Bld38>
+    <Bld39>720</Bld39>
+    <Bld40>1200</Bld40>
+    <Bld41>0</Bld41>
+    <Bld42>0</Bld42>
+    <Bld43>900</Bld43>
+    <Bld44>0</Bld44>
+    <Bld45>0</Bld45>
+    <Bld46>Small parking area/garage within building.</Bld46>
+  </WKFC_InspectionData_BldgInfo>
+    <WKFC_InspectionData_CommonHaz>
+    <CH1>Conduit</CH1>
+    <CH2 />
+    <CH3>Circuit Breakers</CH3>
+    <CH4 />
+    <CH5>Yes</CH5>
+    <CH6 />
+    <CH7>Yes</CH7>
+    <CH8 />
+    <CH9>No</CH9>
+    <CH10 />
+    <CH11>No</CH11>
+    <CH12 />
+    <CH13>Copper</CH13>
+    <CH14 />
+    <CH15>Forced Air</CH15>
+    <CH16 />
+    <CH17>Natural Gas</CH17>
+    <CH18 />
+    <CH19>In Wall</CH19>
+    <CH20 />
+    <CH21>No</CH21>
+    <CH22>N/A</CH22>
+    <CH23>Yes</CH23>
+    <CH24 />
+    <CH25>1/2016</CH25>
+    <CH26 />
+    <CH27>Yes</CH27>
+    <CH28 />
+    <CH29>No</CH29>
+    <CH30>None</CH30>
+    <CH31>Yes</CH31>
+    <CH32>N/A</CH32>
+    <CH33>Yes</CH33>
+    <CH34>N/A</CH34>
+    <CH35>2009</CH35>
+    <CH36>Satisfactory</CH36>
+    <CH37>Installed new in 2009.</CH37>
+    <CH38>2009</CH38>
+    <CH39>Satisfactory</CH39>
+    <CH40>Installed new in 2009.</CH40>
+    <CH41>2009</CH41>
+    <CH42>Satisfactory</CH42>
+    <CH43>Installed new in 2009.</CH43>
+    <CH44>2009</CH44>
+    <CH45>Satisfactory</CH45>
+    <CH46>Installed new in 2009.</CH46>
+    <CH47>N/A</CH47>
+  </WKFC_InspectionData_CommonHaz>
+    <WKFC_InspectionData_GeneralLiability>
+    <GL1>No</GL1>
+    <GL2 />
+    <GL3>Yes</GL3>
+    <GL4 />
+    <GL5>Yes</GL5>
+    <GL6 />
+    <GL7>No</GL7>
+    <GL8 />
+    <GL9>No</GL9>
+    <GL10 />
+    <GL11>N/A</GL11>
+    <GL12>No pet allowed</GL12>
+    <GL13>No</GL13>
+    <GL14 />
+    <GL15>Yes</GL15>
+    <GL16 />
+    <GL17>Yes</GL17>
+    <GL18 />
+    <GL19>Yes</GL19>
+    <GL20 />
+    <GL21>Yes</GL21>
+    <GL22 />
+    <GL23>Yes</GL23>
+    <GL24 />
+    <GL25>N/A</GL25>
+    <GL26 />
+    <GL27>Yes</GL27>
+    <GL28 />
+    <GL29>Yes</GL29>
+    <GL30 />
+    <GL31>N/A</GL31>
+    <GL32 />
+    <GL33>Yes</GL33>
+    <GL34 />
+    <GL35>Yes</GL35>
+    <GL36 />
+    <GL37>Yes</GL37>
+    <GL38 />
+    <GL39>Yes</GL39>
+    <GL40 />
+    <GL41>Yes</GL41>
+    <GL42 />
+    <GL43>Yes</GL43>
+    <GL44 />
+    <GL45>Yes</GL45>
+    <GL46 />
+    <GL47>Yes</GL47>
+    <GL48 />
+    <GL49>N/A</GL49>
+    <GL50 />
+    <GL51>No</GL51>
+    <GL52 />
+    <GL53>Yes</GL53>
+    <GL54 />
+    <GL55>Yes</GL55>
+    <GL56 />
+    <GL57>Yes</GL57>
+    <GL58 />
+    <GL59>No</GL59>
+    <GL60 />
+    <GL61>No</GL61>
+    <GL62 />
+    <GL63>No</GL63>
+    <GL64 />
+    <GL65>No</GL65>
+    <GL66 />
+    <GL67>No</GL67>
+    <GL68 />
+    <GL69>N/A</GL69>
+    <GL70 />
+    <GL71>N/A</GL71>
+    <GL72 />
+    <GL73>No</GL73>
+    <GL74 />
+    <GL75>N/A</GL75>
+    <GL76 />
+    <GL77>N/A</GL77>
+    <GL78 />
+    <GL79>N/A</GL79>
+    <GL80 />
+    <GL81>N/A</GL81>
+    <GL82 />
+    <GL83>N/A</GL83>
+    <GL84 />
+    <GL85>N/A</GL85>
+    <GL86 />
+    <GL87>N/A</GL87>
+    <GL88 />
+    <GL89>N/A</GL89>
+    <GL90 />
+    <GL91>No</GL91>
+    <GL92 />
+    <GL93>No</GL93>
+    <GL94 />
+    <GL95>N/A</GL95>
+  </WKFC_InspectionData_GeneralLiability>
+    <WKFC_InspectionData_NeighboringExposures>
+    <NE1>N/A</NE1>
+    <NE2 />
+    <NE3 />
+    <NE4 />
+    <NE5>0</NE5>
+    <NE6>3</NE6>
+    <NE7>Joisted Masonry</NE7>
+    <NE8>Commercial</NE8>
+    <NE9>0</NE9>
+    <NE10>3</NE10>
+    <NE11>Joisted Masonry</NE11>
+    <NE12>Commercial/Residential</NE12>
+    <NE13>0</NE13>
+    <NE14>5</NE14>
+    <NE15>Joisted Masonry</NE15>
+    <NE16>Commercial/Residential</NE16>
+    <NE17>No</NE17>
+    <NE18>Yes</NE18>
+    <NE19>Yes</NE19>
+    <NE20>No</NE20>
+    <NE21>Yes</NE21>
+    <NE22>No</NE22>
+    <NE23>No</NE23>
+    <NE24>No</NE24>
+    <NE25>Yes</NE25>
+    <NE26>No</NE26>
+    <NE27>The risk is located in a stable urban mixed residential/commercial neighborhood with adequate lighting.</NE27>
+  </WKFC_InspectionData_NeighboringExposures>
+    <WKFC_InspectionData_OperationsOccupancy>
+    <Ops1>Owner (absentee)</Ops1>
+    <Ops2>7 years</Ops2>
+    <Ops3>Residential</Ops3>
+    <Ops4>7 years</Ops4>
+    <Ops5>N/A</Ops5>
+    <Ops6>Yes</Ops6>
+    <Ops7>23</Ops7>
+    <Ops8>22</Ops8>
+    <Ops9>0</Ops9>
+    <Ops10>0</Ops10>
+    <Ops11>0</Ops11>
+    <Ops12>0</Ops12>
+    <Ops13>0</Ops13>
+    <Ops14>0</Ops14>
+    <Ops15>0</Ops15>
+    <Ops16>1</Ops16>
+    <Ops17>0</Ops17>
+    <Ops18>0</Ops18>
+    <Ops19>0</Ops19>
+    <Ops20>0</Ops20>
+    <Ops21>0</Ops21>
+    <Ops22>0</Ops22>
+    <Ops23>0</Ops23>
+    <Ops24>N/A</Ops24>
+    <Ops25>N/A</Ops25>
+    <Ops26>N/A</Ops26>
+    <Ops27>N/A</Ops27>
+    <Ops28>Occupants are families, adults and commercial tenants.</Ops28>
+  </WKFC_InspectionData_OperationsOccupancy>
+    <WKFC_InspectionData_ProtectionSecurity>
+    <Prot1>1</Prot1>
+    <Prot2 />
+    <Prot3>100'</Prot3>
+    <Prot4 />
+    <Prot5>2 miles</Prot5>
+    <Prot6 />
+    <Prot7>Paid</Prot7>
+    <Prot8 />
+    <Prot9>100</Prot9>
+    <Prot10 />
+    <Prot11>Yes</Prot11>
+    <Prot12 />
+    <Prot13>Central Standing</Prot13>
+    <Prot14 />
+    <Prot15>No</Prot15>
+    <Prot16>None</Prot16>
+    <Prot17>None</Prot17>
+    <Prot18 />
+    <Prot19>None</Prot19>
+    <Prot20 />
+    <Prot21>Hardwired</Prot21>
+    <Prot22 />
+    <Prot23>Central Station</Prot23>
+    <Prot24 />
+    <Prot25>No</Prot25>
+    <Prot26>Yes</Prot26>
+    <Prot27>Yes</Prot27>
+    <Prot28>No</Prot28>
+    <Prot29>N/A</Prot29>
+    <Prot30 />
+    <Prot31>Yes</Prot31>
+    <Prot32 />
+    <Prot33>No</Prot33>
+    <Prot34 />
+    <Prot35>Yes</Prot35>
+    <Prot36 />
+    <Prot37>Yes</Prot37>
+    <Prot38>Alarmed push bar is on roof door.</Prot38>
+    <Prot39>Security consists of steal gates for the mercantile, deadbolt door locks, entrance intercom, CCTV and exterior lighting.</Prot39>
+  </WKFC_InspectionData_ProtectionSecurity>
+    <WKFC_InspectionData_RecsOpinionLosses>
+    <Recs1>Yes</Recs1>
+    <Recs2>2</Recs2>
+    <Recs3>2</Recs3>
+    <Opinion1>Satisfactory with Recommenedations</Opinion1>
+    <Opinion2>Satisfactory with Recommenedations</Opinion2>
+    <Opinion3>N/A</Opinion3>
+    <Loss1>No</Loss1>
+    <Loss2>N/A</Loss2>
+  </WKFC_InspectionData_RecsOpinionLosses>
+    <WKFC_InspectionData_SpecialHazards>
+    <SH1>No</SH1>
+    <SH2>No</SH2>
+    <SH3>No</SH3>
+    <SH4>No</SH4>
+    <SH5>No</SH5>
+    <SH6>No</SH6>
+    <SH7>No</SH7>
+    <SH8>No</SH8>
+    <SH9>No</SH9>
+    <SH10>No</SH10>
+    <SH11>No</SH11>
+    <SH12>No</SH12>
+    <SH13>N/A</SH13>
+  </WKFC_InspectionData_SpecialHazards>
+    <WKFC_InspectionData_Cooking>
+    <Cook1>None</Cook1>
+    <Cook2>Other</Cook2>
+    <Cook3>n/a</Cook3>
+    <Cook4 />
+    <Cook5 />
+    <Cook6 />
+    <Cook7>1</Cook7>
+    <Cook8 />
+    <Cook9>n/a</Cook9>
+    <Cook10>Other</Cook10>
+    <Cook11>n/a</Cook11>
+    <Cook12>N/A</Cook12>
+    <Cook13 />
+    <Cook14>Other</Cook14>
+    <Cook15>n/a</Cook15>
+    <Cook16>N/A</Cook16>
+    <Cook17 />
+    <Cook18>N/A</Cook18>
+    <Cook19 />
+    <Cook20>n/a</Cook20>
+    <Cook21 />
+    <Cook22>N/A</Cook22>
+    <Cook23 />
+    <Cook24>n/a</Cook24>
+    <Cook25 />
+    <Cook26>N/A</Cook26>
+    <Cook27 />
+    <Cook28>N/A</Cook28>
+    <Cook29 />
+    <Cook30>N/A</Cook30>
+    <Cook31 />
+    <Cook32>No</Cook32>
+    <Cook33>n/a</Cook33>
+    <Cook34>n/a</Cook34>
+    <Cook35 />
+    <Cook36>N/A</Cook36>
+    <Cook37 />
+    <Cook38>Other</Cook38>
+    <Cook39>n/a</Cook39>
+    <Cook40>n/a</Cook40>
+    <Cook41 />
+    <Cook42>N/A</Cook42>
+    <Cook43 />
+    <Cook44>N/A</Cook44>
+    <Cook45 />
+    <Cook46>N/A</Cook46>
+    <Cook47 />
+    <Cook48>N/A</Cook48>
+    <Cook49 />
+    <Cook50>N/A</Cook50>
+    <Cook51 />
+    <Cook52 />
+    <CkNum>1</CkNum>
+  </WKFC_InspectionData_Cooking>
+    <WKFC_InspectionData_Sprinkler>
+    <Sprink1>95</Sprink1>
+    <Sprink2>All areas except mercantile.</Sprink2>
+    <Sprink3>Yes</Sprink3>
+    <Sprink4 />
+    <Sprink5>Central Station</Sprink5>
+    <Sprink6 />
+    <Sprink7>Yes</Sprink7>
+    <Sprink8 />
+    <Sprink9>Yes</Sprink9>
+    <Sprink10 />
+    <Sprink11>Dry</Sprink11>
+    <Sprink12 />
+    <Sprink13>No</Sprink13>
+    <Sprink14 />
+    <Sprink15>Other</Sprink15>
+    <Sprink16>System has not been inspected since 2014.</Sprink16>
+    <Sprink17>2014</Sprink17>
+    <Sprink18 />
+    <Sprink19>n/a</Sprink19>
+    <Sprink20 />
+    <Sprink21>N/A</Sprink21>
+    <Sprink22 />
+    <Sprink23>City / Public</Sprink23>
+    <Sprink24 />
+    <Sprink25>Yes</Sprink25>
+    <Sprink26 />
+    <Sprink27>Yes</Sprink27>
+    <Sprink28 />
+    <Sprink29>Yes</Sprink29>
+    <Sprink30 />
+    <Sprink31>N/A</Sprink31>
+  </WKFC_InspectionData_Sprinkler>
+    <WKFC_InspectionData_PropertyRecommendations>
+    <Num2>99781138-04</Num2>
+    <Num1>Iuliano Towers LLC</Num1>
+    <Num13>12/28/2016 8:49 AM</Num13>
+    <Num10>Reasearch Specialist Inc.</Num10>
+    <Num8>679 4th Avenue Brooklyn NY 11232</Num8>
+    <Num9 />
+    <PrRecNum>1</PrRecNum>
+    <PropRec>Fire extinguishers should be serviced and tagged annually by a licensed company. Tags to remain on units to confirm date of service.</PropRec>
+  </WKFC_InspectionData_PropertyRecommendations>
+    <WKFC_InspectionData_PropertyRecommendations>
+    <Num2>99781138-04</Num2>
+    <Num1>Iuliano Towers LLC</Num1>
+    <Num13>12/28/2016 8:49 AM</Num13>
+    <Num10>Reasearch Specialist Inc.</Num10>
+    <Num8>679 4th Avenue Brooklyn NY 11232</Num8>
+    <Num9 />
+    <PrRecNum>2</PrRecNum>
+    <PropRec>Sprinkler and alarm system should be tested and serviced by a licensed company on a regular basis as needed and properly tagged to ensure proper function.</PropRec>
+  </WKFC_InspectionData_PropertyRecommendations>
+    <WKFC_InspectionData_GLRecommendations>
+    <Num2>99781138-04</Num2>
+    <Num1>Iuliano Towers LLC</Num1>
+    <Num13>12/28/2016 8:49 AM</Num13>
+    <Num10>Reasearch Specialist Inc.</Num10>
+    <Num8>679 4th Avenue Brooklyn NY 11232</Num8>
+    <Num9 />
+    <GLRecNum>1</GLRecNum>
+    <GLRec>Fire extinguishers should be serviced and tagged annually by a licensed company. Tags to remain on units to confirm date of service.</GLRec>
+  </WKFC_InspectionData_GLRecommendations>
+   <WKFC_InspectionData_GLRecommendations>
+    <Num2>99781138-04</Num2>
+    <Num1>Iuliano Towers LLC</Num1>
+    <Num13>12/28/2016 8:49 AM</Num13>
+    <Num10>Reasearch Specialist Inc.</Num10>
+    <Num8>679 4th Avenue Brooklyn NY 11232</Num8>
+    <Num9 />
+    <GLRecNum>2</GLRecNum>
+    <GLRec>Sprinkler and alarm system should be tested and serviced by a licensed company on a regular basis as needed and properly tagged to ensure proper function.</GLRec>
+  </WKFC_InspectionData_GLRecommendations>
+</InspectionData>

@@ -27,14 +27,12 @@ namespace XML
                 return instance;
             }
         }
-        
         public void NewFile()
         {
             file = new OpenFileDialog();
             file.Filter = "XML Files (*.xml)|*.xml|All files (*.*)|*.*";
             file.FileOk += OnFileOK;
             file.ShowDialog();
-
         }
         private void OnFileOK(object sender, EventArgs e)
         {
