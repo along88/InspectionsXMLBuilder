@@ -10,6 +10,9 @@ namespace XML
     public class FileManager
     {
         private static OpenFileDialog file;
+        /// <summary>
+        /// Read-Only string reference to the OpenFileDialog file name
+        /// </summary>
         private static string FileName
         {
             get { return file.FileName; }
@@ -27,6 +30,10 @@ namespace XML
                 return instance;
             }
         }
+
+        /// <summary>
+        /// Opens a File Dialog for an XML file
+        /// </summary>
         public void NewFile()
         {
             file = new OpenFileDialog();
@@ -38,7 +45,7 @@ namespace XML
         {
             try
             {
-             XmlBuilder.Instance.GetInspectionData(FileName);
+             XmlBuilder.Instance.GetInspectionData(FileName); //Starts Process for parsing xml file into a string dictionary
             }
             catch(Exception ex)
             {

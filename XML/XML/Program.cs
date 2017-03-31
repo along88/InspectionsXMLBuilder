@@ -25,6 +25,11 @@ namespace XML
             }
             Console.ReadKey();
         }
+
+        /// <summary>
+        /// Prompts user for a form to load and returns the form selection as a string
+        /// </summary>
+        /// <returns></returns>
         static string RequestForm()
         {
             bool selecting = true;
