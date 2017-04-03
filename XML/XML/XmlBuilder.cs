@@ -27,9 +27,36 @@ namespace XML
                 return instance;
             }
         }
-        static public Dictionary<string, string> ElementNodes { get; private set; }
-        static public Dictionary<string, string> ElementNodes2 { get; private set; }
+        static public Dictionary<string, string> InspectionData { get; private set; }
+        static public Dictionary<string, string> Survey { get; private set; }
+        static public Dictionary<string, string> AddnandCATPerils { get; private set; }
+        static public Dictionary<string, string> Misc { get; private set; }
+        static public Dictionary<string, string> BldgInfo { get; private set; }
+        static public Dictionary<string, string> CommonHaz { get; private set; }
+        static public Dictionary<string, string> GeneralLiability { get; private set; }
+        static public Dictionary<string, string> NeighboringExposures { get; private set; }
+        static public Dictionary<string, string> OperationsOccupancy { get; private set; }
+        static public Dictionary<string, string> ProtectionSecurity { get; private set; }
+        static public Dictionary<string, string> RecsOpinionLosses { get; private set; }
+        static public Dictionary<string, string> SpecialHazards { get; private set; }
+        static public Dictionary<string, string> Cooking { get; private set; }
+        static public Dictionary<string, string> Sprinkler { get; private set; }
+        static public List<Dictionary<string, string>> PropertyRecommendations { get; private set; }
+        static public List<Dictionary<string, string>> GLRecommendations { get; private set; }
 
+        private Dictionary<string,string> GetElements(XmlNode xmlNodes)
+        {
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            foreach (XmlNode xmlNode in xmlNodes)
+            {
+
+                if (string.IsNullOrEmpty(xmlNode.InnerText))
+                    dictionary.Add(xmlNode.Name, "EMPTY!");
+                else
+                    dictionary.Add(xmlNode.Name, xmlNode.InnerText);
+            }
+            return dictionary;
+        }
         /// <summary>
         /// Populates ElementNodes with the selected XML's content where the element name matches a
         /// desired case value
@@ -37,27 +64,81 @@ namespace XML
         private void populate(XmlDocument xmlDoc)
         {
             xmlNodes = xmlDoc.ChildNodes[0].ChildNodes;
-            for (int i = 0; i < xmlNodes.Count; i++)
+
+            foreach (XmlNode item in xmlNodes)
             {
-                foreach (XmlNode xmlNode in xmlNodes[i])
+                switch (item.Name)
                 {
-                   if (!(ElementNodes.Count >= 249))
-                    {
-                        if (string.IsNullOrEmpty(xmlNode.InnerText))
-                            ElementNodes.Add(xmlNode.Name, "EMPTY!");
-                        else
-                            ElementNodes.Add(xmlNode.Name, xmlNode.InnerText);
-                    }
-                    else
-                    {
-                        ElementNodes2 = new Dictionary<string, string>();
-                        if (string.IsNullOrEmpty(xmlNode.InnerText))
-                            ElementNodes2.Add(xmlNode.Name, "EMPTY!");
-                        else
-                            ElementNodes2.Add(xmlNode.Name, xmlNode.InnerText);
-                    }
+                    case "WKFC_InspectionData":
+                        InspectionData = GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_SurveyInfo":
+                        Survey = GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_AddnandCATPerils":
+                        AddnandCATPerils = GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_Misc":
+                        Misc= GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_BldgInfo":
+                       BldgInfo = GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_CommonHaz":
+                       CommonHaz = GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_GeneralLiability":
+                       GeneralLiability = GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_NeighboringExposures":
+                        NeighboringExposures= GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_OperationsOccupancy":
+                        OperationsOccupancy = GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_ProtectionSecurity":
+                       ProtectionSecurity = GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_RecsOpinionLosses":
+                        RecsOpinionLosses= GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_SpecialHazards":
+                     SpecialHazards   = GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_Cooking":
+                        Cooking = GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_Sprinkler":
+                       Sprinkler = GetElements(item);
+                        break;
+                    case "WKFC_InspectionData_PropertyRecommendations":
+                        if(PropertyRecommendations == null)
+                        {
+                            PropertyRecommendations = new List<Dictionary<string, string>>();
+                        }
+                        PropertyRecommendations.Add( GetElements(item));
+                        break;
+                    case "WKFC_InspectionData_GLRecommendations":
+                        if(GLRecommendations == null)
+                        {
+                            GLRecommendations = new List<Dictionary<string, string>>();
+                        }
+                        GLRecommendations.Add(GetElements(item));
+                        break;
+                    default:
+                        break;
                 }
             }
+            //for (int i = 0; i < xmlNodes.Count; i++)
+            //{
+            //    if(i == 0)
+            //        InspectionData = GetElements(xmlNodes[i]);
+            //    else if(i == 1)
+            //        Survey = GetElements(xmlNodes[i]);
+
+
+
+            //}
             
         }
 
@@ -140,17 +221,17 @@ namespace XML
             //for (int i = 0; i < value.Count; i++)
             //    ElementNodes.Add(key[i], value[i]);
             #endregion
-            ElementNodes = new Dictionary<string, string>();
+            
             string line = "";
             string fullLine = null;
+            //Xml Scrubber
             using (StreamReader sr = new StreamReader(xmlfile))
             {
                 while (true)
                 {
                      line = sr.ReadLine();
-                    if (string.IsNullOrEmpty(line) || string.IsNullOrWhiteSpace(line))
+                    if (string.IsNullOrWhiteSpace(line))
                         break;
-                    
                     else if (line.Contains("&"))
                     {
                         line = line.Replace("&", "&amp;");
@@ -161,7 +242,7 @@ namespace XML
                     
                 }
             }
-            Console.WriteLine(fullLine);
+            //Console.WriteLine(fullLine);
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(fullLine);
             populate(xmlDocument);
