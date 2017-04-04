@@ -39,7 +39,7 @@ namespace XML
         static public Dictionary<string, string> ProtectionSecurity { get; private set; }
         static public Dictionary<string, string> RecsOpinionLosses { get; private set; }
         static public Dictionary<string, string> SpecialHazards { get; private set; }
-        static public Dictionary<string, string> Cooking { get; private set; }
+        static public List<Dictionary<string, string>> Cooking { get; private set; }
         static public Dictionary<string, string> Sprinkler { get; private set; }
         static public List<Dictionary<string, string>> PropertyRecommendations { get; private set; }
         static public List<Dictionary<string, string>> GLRecommendations { get; private set; }
@@ -50,7 +50,7 @@ namespace XML
             foreach (XmlNode xmlNode in xmlNodes)
             {
 
-                if (string.IsNullOrEmpty(xmlNode.InnerText))
+                if (string.IsNullOrEmpty(xmlNode.InnerText)|| string.IsNullOrWhiteSpace(xmlNode.InnerText))
                     dictionary.Add(xmlNode.Name, "EMPTY!");
                 else
                     dictionary.Add(xmlNode.Name, xmlNode.InnerText);
@@ -67,58 +67,62 @@ namespace XML
 
             foreach (XmlNode item in xmlNodes)
             {
-                switch (item.Name)
+                switch (item.Name.ToLower())
                 {
-                    case "WKFC_InspectionData":
+                    case ("wkfc_inspectiondata"):
                         InspectionData = GetElements(item);
                         break;
-                    case "WKFC_InspectionData_SurveyInfo":
+                    case "wkfc_inspectiondata_surveyinfo":
                         Survey = GetElements(item);
                         break;
-                    case "WKFC_InspectionData_AddnandCATPerils":
+                    case "wkfc_inspectiondata_addnandcatperils":
                         AddnandCATPerils = GetElements(item);
                         break;
-                    case "WKFC_InspectionData_Misc":
+                    case "wkfc_inspectiondata_misc":
                         Misc= GetElements(item);
                         break;
-                    case "WKFC_InspectionData_BldgInfo":
+                    case "wkfc_inspectiondata_bldginfo":
                        BldgInfo = GetElements(item);
                         break;
-                    case "WKFC_InspectionData_CommonHaz":
+                    case "wkfc_inspectiondata_commonhaz":
                        CommonHaz = GetElements(item);
                         break;
-                    case "WKFC_InspectionData_GeneralLiability":
+                    case "wkfc_inspectiondata_generalliability":
                        GeneralLiability = GetElements(item);
                         break;
-                    case "WKFC_InspectionData_NeighboringExposures":
+                    case "wkfc_inspectiondata_neighboringexposures":
                         NeighboringExposures= GetElements(item);
                         break;
-                    case "WKFC_InspectionData_OperationsOccupancy":
+                    case "wkfc_inspectiondata_operationsoccupancy":
                         OperationsOccupancy = GetElements(item);
                         break;
-                    case "WKFC_InspectionData_ProtectionSecurity":
+                    case "wkfc_inspectiondata_protectionsecurity":
                        ProtectionSecurity = GetElements(item);
                         break;
-                    case "WKFC_InspectionData_RecsOpinionLosses":
+                    case "wkfc_inspectiondata_recsopinionlosses":
                         RecsOpinionLosses= GetElements(item);
                         break;
-                    case "WKFC_InspectionData_SpecialHazards":
+                    case "wkfc_inspectiondata_specialhazards":
                      SpecialHazards   = GetElements(item);
                         break;
-                    case "WKFC_InspectionData_Cooking":
-                        Cooking = GetElements(item);
+                    case "wkfc_inspectiondata_cooking":
+                        if (Cooking == null)
+                        {
+                            Cooking = new List<Dictionary<string, string>>();
+                        }
+                        Cooking.Add(GetElements(item));
                         break;
-                    case "WKFC_InspectionData_Sprinkler":
+                    case "wkfc_inspectiondata_sprinkler":
                        Sprinkler = GetElements(item);
                         break;
-                    case "WKFC_InspectionData_PropertyRecommendations":
+                    case "wkfc_inspectiondata_propertyrecommendations":
                         if(PropertyRecommendations == null)
                         {
                             PropertyRecommendations = new List<Dictionary<string, string>>();
                         }
                         PropertyRecommendations.Add( GetElements(item));
                         break;
-                    case "WKFC_InspectionData_GLRecommendations":
+                    case "wkfc_inspectiondata_glrecommendations":
                         if(GLRecommendations == null)
                         {
                             GLRecommendations = new List<Dictionary<string, string>>();

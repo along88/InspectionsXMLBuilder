@@ -1,5 +1,5 @@
 ﻿<InspectionData>
- <WKFC_InspectionData Seq="1">
+  <WKFC_InspectionData Seq="1">
   <Num3>1137555</Num3> 
   <ReportNumber>11636731</ReportNumber> 
   <LocationID>3829357</LocationID> 
@@ -22,20 +22,20 @@
   <Num18>Jimcor Agencies</Num18> 
   <Num19>Christopher Tarnowski</Num19> 
   </WKFC_InspectionData>
- <WKFC_InspectionData_SurveyInfo Seq="1">
+  <WKFC_InspectionData_SurveyInfo Seq="1">
   <Survey1>Property</Survey1> 
   <Survey5>No</Survey5> 
   <Survey7>3000000</Survey7> 
   <Survey8>There are battery operated smoke alarms in the commercial space and apartment that are operational. There are no aluminum wiring seen.</Survey8> 
   </WKFC_InspectionData_SurveyInfo>
- <WKFC_InspectionData_RecsOpinionLosses Seq="1">
+  <WKFC_InspectionData_RecsOpinionLosses Seq="1">
   <Recs1>Yes</Recs1> 
   <Recs2>2</Recs2> 
   <Opinion1>SAT with recs</Opinion1> 
   <Opinion3>The property is an ISO class 2 construction. There were no major deficiencies noticed to the electrical system, plumbing and heating unit. There was no AS maintenance log seen.</Opinion3> 
   <Loss1>No</Loss1> 
   </WKFC_InspectionData_RecsOpinionLosses>
- <WKFC_InspectionData_OperationsOccupancy Seq="1">
+  <WKFC_InspectionData_OperationsOccupancy Seq="1">
   <Ops1>Owner (Absentee)</Ops1> 
   <Ops2>8Years</Ops2> 
   <Ops3>ResidentialMercantile</Ops3> 
@@ -59,7 +59,7 @@
   <Ops22>0</Ops22> 
   <Ops28>The building is owned and used by the insured and a rental investment. There is one commercial rental unit and two residential rental units. The building contains one commercial tenant and two residential tenants. The building contains one commercial tenant and two residential tenants.</Ops28> 
   </WKFC_InspectionData_OperationsOccupancy>
- <WKFC_InspectionData_BldgInfo Seq="1">
+  <WKFC_InspectionData_BldgInfo Seq="1">
   <Bld1>0</Bld1> 
   <Bld3>34</Bld3> 
   <Bld4>0</Bld4> 
@@ -99,7 +99,7 @@
   <Bld45>0</Bld45> 
   <Bld46>None. There are exposed corrugated decking and steel beams in the basement. There is a wood rooftop on the top floor. None. Day care center</Bld46> 
   </WKFC_InspectionData_BldgInfo>
- <WKFC_InspectionData_CommonHaz Seq="1">
+  <WKFC_InspectionData_CommonHaz Seq="1">
   <CH1>BXConduit</CH1> 
   <CH2>No aluminum wiring</CH2> 
   <CH3>Circuit Breakers</CH3> 
@@ -147,7 +147,7 @@
   <CH46>New boilers</CH46> 
   <CH47>None. None seen.</CH47> 
   </WKFC_InspectionData_CommonHaz>
- <WKFC_InspectionData_SpecialHazards Seq="1">
+  <WKFC_InspectionData_SpecialHazards Seq="1">
   <SH1>No</SH1> 
   <SH2>No</SH2> 
   <SH3>No</SH3> 
@@ -162,7 +162,7 @@
   <SH12>No</SH12> 
   <SH13>None.</SH13> 
   </WKFC_InspectionData_SpecialHazards>
- <WKFC_InspectionData_ProtectionSecurity Seq="1">
+  <WKFC_InspectionData_ProtectionSecurity Seq="1">
   <Prot1>4</Prot1> 
   <Prot2>city, large</Prot2> 
   <Prot3>20</Prot3> 
@@ -192,7 +192,7 @@
   <Prot38>secured hatch</Prot38> 
   <Prot39>NOne. None.</Prot39> 
   </WKFC_InspectionData_ProtectionSecurity>
- <WKFC_InspectionData_NeighboringExposures Seq="1">
+  <WKFC_InspectionData_NeighboringExposures Seq="1">
   <NE1>60</NE1> 
   <NE2>3</NE2> 
   <NE3>ISO 2</NE3> 
@@ -212,7 +212,7 @@
   <NE17>No</NE17> 
   <NE27>The building is located in a residential/commercial area.There are no high risk within 100 feet of the insured. The local fire department is approximately .5 miles away. There are approximately 3 fire hydrants within 500 feet of the property. The roadways are paved and easily accessible year round.The neighborhood is a stable area with little to no crime activities.The building is located in an urban area with access to public transportation, commercial spaces.</NE27> 
   </WKFC_InspectionData_NeighboringExposures>
- <WKFC_InspectionData_AddnandCATPerils Seq="1">
+  <WKFC_InspectionData_AddnandCATPerils Seq="1">
   <Peril1>No</Peril1> 
   <Peril2>No</Peril2> 
   <Peril3>No</Peril3> 
@@ -225,14 +225,14 @@
   <Peril10>Yes</Peril10> 
   <Peril11>None.There are wind storms from Noreaster weather conditions.</Peril11> 
   </WKFC_InspectionData_AddnandCATPerils>
- <WKFC_InspectionData_Misc Seq="1">
+  <WKFC_InspectionData_Misc Seq="1">
   <Misc1>None.</Misc1> 
   </WKFC_InspectionData_Misc>
- <WKFC_InspectionData_GeneralLiability Seq="1">
+  <WKFC_InspectionData_GeneralLiability Seq="1">
   <GL1>No</GL1> 
   <GL3>Yes</GL3> 
   </WKFC_InspectionData_GeneralLiability>
- <WKFC_InspectionData_Sprinkler Seq="1">
+  <WKFC_InspectionData_Sprinkler Seq="1">
   <Sprink3>Yes</Sprink3> 
   <Sprink4>locked and secured, open valve</Sprink4> 
   <Sprink5>Local Alarm</Sprink5> 
@@ -261,7 +261,7 @@
   <Sprink30>Covers seen.</Sprink30> 
   <Sprink31>There is no service tags seen for the sprinkler system.</Sprink31> 
   </WKFC_InspectionData_Sprinkler>
- <WKFC_InspectionData_PropertyRecommendations Seq="1">
+  <WKFC_InspectionData_PropertyRecommendations Seq="1">
   <Num2>D38634045-001</Num2> 
   <Num1>Gowanus Water Company LLC</Num1> 
   <Num13>13/03/2017</Num13> 
@@ -270,11 +270,11 @@
   <PrRecNum>1</PrRecNum> 
   <PropRec>01/03/2017The automatic sprinkler system is not being serviced. Contact a qualified licensed automatic sprinkler service company to inspect and complete any necessary repairs. The automatic sprinkler system should be inspected and serviced annually.</PropRec> 
   </WKFC_InspectionData_PropertyRecommendations>
- <WKFC_InspectionData_PropertyRecommendations Seq="2">
+  <WKFC_InspectionData_PropertyRecommendations Seq="2">
   <PrRecNum>2</PrRecNum> 
   <PropRec>02/03/2017Install an ABC or BC fire extinguisher outside the boiler room appropriately sized for the boiler room. Fire extinguishers should be inspected annually and tagged by a qualified contractor.</PropRec> 
   </WKFC_InspectionData_PropertyRecommendations>
- <WKFC_InspectionData_GLRecommendations Seq="1">
+  <WKFC_InspectionData_GLRecommendations Seq="1">
   <Num2>D38634045-001</Num2> 
   <Num1>Gowanus Water Company LLC</Num1> 
   <Num13>13/03/2017</Num13> 
