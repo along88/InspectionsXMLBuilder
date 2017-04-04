@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Word;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace XML
 {
@@ -14,12 +15,16 @@ namespace XML
         private object fileName = ""; //filename of the given word document
         private Application wordApp; 
         private Document inspectionDoc;
-        private Dictionary<string, string> foundElements; //reference to XmlBuilder's dictionary
-
+        private List<Dictionary<string, string>> foundElements; //reference to XmlBuilder's dictionary
+        //private Dictionary<string, string> foundElements2;
+        private List<string> DocumentList = new List<string>();
         public InspectionForm(string form)
         {
-            GetFileName(form); 
-            InitializeInspectionForm();
+            GetFileName(form);
+            Console.Write("Building Document" + Environment.NewLine + "Please Wait.");
+            FillInspectionForm();
+            Console.WriteLine("Complete!");
+            wordApp.Visible = true;
         }
        
         /// <summary>
@@ -31,11 +36,7 @@ namespace XML
             wordApp.Visible = false;
             inspectionDoc = new Document();
             inspectionDoc = wordApp.Documents.Open(ref fileName, ReadOnly: false);
-            foundElements = XmlBuilder.ElementNodes;
-            Console.Write("Building Document"+ Environment.NewLine+"Please Wait.");
-            FillInspectionForm();
-            Console.WriteLine("Complete!");
-            wordApp.Visible = true;
+            
         }
         
         /// <summary>
@@ -54,13 +55,20 @@ namespace XML
                     {
                         if (cell.Range.Text[0].Equals('<'))
                         {
-                            foreach (var key in foundElements)
+                            for (int k = 0; k < foundElements.Count; k++)
                             {
-                                if (cell.Range.Text.Contains(String.Format("{0}", key.Key)))
+                                if(foundElements[k] == null)
                                 {
-                                    cell.Range.Text = key.Value;
-                                    foundElements.Remove(key.Key);
-                                    break;
+                                    continue;
+                                }
+                                foreach(var key in foundElements[k])
+                                {
+                                    if (cell.Range.Text.Contains(String.Format("<{0}>", key.Key)))
+                                    {
+                                        cell.Range.Text = key.Value;
+                                        foundElements[k].Remove(key.Key);
+                                        break;
+                                    }
                                 }
                             }
                         }
@@ -77,7 +85,7 @@ namespace XML
             }
             catch (Exception ex)
             {
-                ErrorExceptions.OnException(ex.Message);
+                ErrorExceptions.OnException(ex.StackTrace);
                 inspectionDoc.Application.Quit(ref missing, ref missing, ref missing);
             }
         }
@@ -88,31 +96,98 @@ namespace XML
         /// <param name="form"></param>
         private void GetFileName(string form)
         {
+            foundElements = new List<Dictionary<string, string>>();
+            string root = System.IO.Directory.GetCurrentDirectory();
             switch (form)
             {
                 case "inspection format":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\WKFCInspectionformat.doc";
+                    fileName = root+ @"\Template\WKFCInspectionformat.doc";
+                    if (XmlBuilder.InspectionData != null)
+                        foundElements.Add(XmlBuilder.InspectionData);
+                    if (XmlBuilder.Survey != null)
+                        foundElements.Add(XmlBuilder.Survey);
+                    if (XmlBuilder.RecsOpinionLosses != null)
+                        foundElements.Add(XmlBuilder.RecsOpinionLosses);
+                    if (XmlBuilder.OperationsOccupancy != null)
+                        foundElements.Add(XmlBuilder.OperationsOccupancy);
+                    if (XmlBuilder.BldgInfo != null)
+                        foundElements.Add(XmlBuilder.BldgInfo);
+                    if (XmlBuilder.CommonHaz != null)
+                        foundElements.Add(XmlBuilder.CommonHaz);
+                    if (XmlBuilder.SpecialHazards != null)
+                        foundElements.Add(XmlBuilder.SpecialHazards);
+                    if (XmlBuilder.ProtectionSecurity != null)
+                        foundElements.Add(XmlBuilder.ProtectionSecurity);
+                    if (XmlBuilder.NeighboringExposures != null)
+                        foundElements.Add(XmlBuilder.NeighboringExposures);
+                    if (XmlBuilder.AddnandCATPerils != null)
+                        foundElements.Add(XmlBuilder.AddnandCATPerils);
+                    if (XmlBuilder.Misc != null)
+                        foundElements.Add(XmlBuilder.Misc);
+                    if (XmlBuilder.Cooking != null)
+                    {
+                        for (int i = 0; i < XmlBuilder.Cooking.Count; i++)
+                        {
+                            foundElements.Add(XmlBuilder.Cooking[i]);
+                        }
+                    }
+                    if (XmlBuilder.Sprinkler != null)
+                        foundElements.Add(XmlBuilder.Sprinkler);
+                    if (XmlBuilder.GeneralLiability != null)
+                        foundElements.Add(XmlBuilder.GeneralLiability);
+                    InitializeInspectionForm();
                     break;
                 case "im builders risk":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\imbuildersriskdataelements.doc";
+                    fileName = root + @"\Template\imbuildersriskdataelements.doc";
                     break;
                 case "GL Rec Letter":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\GLRecLetter.doc";
+                    fileName = root + @"\Template\GLRecLetter.doc";
+                    if (XmlBuilder.GLRecommendations != null)
+                    {
+                        for (int i = 0; i < XmlBuilder.GLRecommendations.Count; i++)
+                        {
+                            foundElements.Add(XmlBuilder.GLRecommendations[i]);
+                        }
+                    }
+                    InitializeInspectionForm();
                     break;
                 case "BI Addendum":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\BIADDENDUM.doc";
+                    fileName = root + @"\Template\BIADDENDUM.doc";
                     break;
                 case "Operations Addendum":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\OPERATIONSADDENDUM.doc";
+                    fileName = root + @"\Template\OPERATIONSADDENDUM.doc";
                     break;
                 case "Property Rec Letter":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\PropertyRecLetter.doc";
+                    fileName = root + @"\Template\PropertyRecLetter.doc";
+                    if (XmlBuilder.PropertyRecommendations != null)
+                    {
+                        for (int i = 0; i < XmlBuilder.PropertyRecommendations.Count; i++)
+                        {
+                            foundElements.Add(XmlBuilder.PropertyRecommendations[i]);
+                        }
+                    }
+                    InitializeInspectionForm();
                     break;
                 case "Rec Check Inspection Form":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\RECCHECKINSPECTIONFORM.docx";
+                    fileName = root + @"\Template\RECCHECKINSPECTIONFORM.docx";
+                    if (XmlBuilder.PropertyRecommendations != null)
+                    {
+                        for (int i = 0; i < XmlBuilder.PropertyRecommendations.Count; i++)
+                        {
+                            foundElements.Add(XmlBuilder.PropertyRecommendations[i]);
+                        }
+                    }
+                    if (XmlBuilder.GLRecommendations != null)
+                    {
+                            for (int i = 0; i < XmlBuilder.GLRecommendations.Count; i++)
+                        {
+                            foundElements.Add(XmlBuilder.GLRecommendations[i]);
+                        }
+                    }
+                    InitializeInspectionForm();
                     break;
                 case "Wind Addendum":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\WindAddendum.docx";
+                    fileName = root + @"\Template\WindAddendum.docx";
                     break;
                 default:
                     break;

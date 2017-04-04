@@ -22,6 +22,7 @@ namespace XML
             catch (Exception ex)
             {
                 ErrorExceptions.OnException(ex.Message);
+                Console.WriteLine(ex.Message);
             }
             Console.ReadKey();
         }
