@@ -1,5 +1,5 @@
 ﻿ <InspectionData>
-   <WKFC_InspectionData>
+    <WKFC_InspectionData>
     <VendorID>23</VendorID>
     <ReportNumber>524961</ReportNumber>
     <LocationID>3685664</LocationID>
@@ -25,7 +25,7 @@
     <Num19>Eli Abemayor</Num19>
     <Num20>914-683-1110</Num20>
   </WKFC_InspectionData>
-   <WKFC_InspectionData_SurveyInfo>
+    <WKFC_InspectionData_SurveyInfo>
     <Survey1>Property</Survey1>
     <Survey2>No</Survey2>
     <Survey3>No</Survey3>
@@ -48,10 +48,10 @@
     <Peril10>No</Peril10>
     <Peril11>N/A</Peril11>
   </WKFC_InspectionData_AddnandCATPerils>
-   <WKFC_InspectionData_Misc>
+    <WKFC_InspectionData_Misc>
     <Misc1>N/A</Misc1>
   </WKFC_InspectionData_Misc>
-   <WKFC_InspectionData_BldgInfo>
+    <WKFC_InspectionData_BldgInfo>
     <Bld1>0</Bld1>
     <Bld2>P</Bld2>
     <Bld3>0</Bld3>
@@ -488,7 +488,7 @@
     <GLRecNum>1</GLRecNum>
     <GLRec>Fire extinguishers should be serviced and tagged annually by a licensed company. Tags to remain on units to confirm date of service.</GLRec>
   </WKFC_InspectionData_GLRecommendations>
-   <WKFC_InspectionData_GLRecommendations>
+    <WKFC_InspectionData_GLRecommendations>
     <Num2>99781138-04</Num2>
     <Num1>Iuliano Towers LLC</Num1>
     <Num13>12/28/2016 8:49 AM</Num13>

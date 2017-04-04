@@ -268,15 +268,15 @@
     <SH11>No</SH11>
     <SH12>No</SH12>
     <SH13>Dryers in laundry areas.</SH13>
-  </WKFC_InspectionData_SpecialHazards>
-  - <WKFC_InspectionData_PropertyRecommendations>
+   </WKFC_InspectionData_SpecialHazards>
+   <WKFC_InspectionData_PropertyRecommendations>
     <Num2>WKHSPR-00549-02</Num2>
     <Num1>Avalon Hills Condominium Association</Num1>
     <Num13 />
     <Num10>York Risk Control</Num10>
     <Num8>3535 W Tierra Buena Ln</Num8>
     <Num9 />
-    <PrRecNum>1</PrRecNum>
+    <PrRecNum>sadas</PrRecNum>
     <PropRec>Recommend installation of smoke detectors in the laundry areas..</PropRec>
   </WKFC_InspectionData_PropertyRecommendations>
 </InspectionData>
