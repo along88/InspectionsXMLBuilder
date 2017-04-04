@@ -43,7 +43,9 @@ namespace XML
         static public Dictionary<string, string> Sprinkler { get; private set; }
         static public List<Dictionary<string, string>> PropertyRecommendations { get; private set; }
         static public List<Dictionary<string, string>> GLRecommendations { get; private set; }
-
+        static public Dictionary<string, string> Wind { get; private set; }
+        static public Dictionary<string, string> BI { get; private set; }
+        static public Dictionary<string, string> Operations { get; private set; }
         private Dictionary<string,string> GetElements(XmlNode xmlNodes)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
@@ -51,7 +53,7 @@ namespace XML
             {
 
                 if (string.IsNullOrEmpty(xmlNode.InnerText)|| string.IsNullOrWhiteSpace(xmlNode.InnerText))
-                    dictionary.Add(xmlNode.Name, "EMPTY!");
+                    dictionary.Add(xmlNode.Name, "");
                 else
                     dictionary.Add(xmlNode.Name, xmlNode.InnerText);
             }
@@ -128,6 +130,15 @@ namespace XML
                             GLRecommendations = new List<Dictionary<string, string>>();
                         }
                         GLRecommendations.Add(GetElements(item));
+                        break;
+                    case "wkfc_inspectiondata_wind":
+                        Wind = GetElements(item);
+                        break;
+                    case "wkfc_inspectiondata_businessintaddendum":
+                        BI = GetElements(item);
+                        break;
+                    case "wkfc_inspectiondata_operationsaddendum":
+                        Operations = GetElements(item);
                         break;
                     default:
                         break;

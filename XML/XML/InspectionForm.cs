@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.Office.Interop.Word;
 using System.Diagnostics;
 using System.Reflection;
-
+/// <summary>
+/// PLEASE REFACTOR ME!!! FOR THE LOVE OF GLOB PLEASE REFACTOR ME!
+/// https://www.youtube.com/watch?v=L4DX2DBWtTk
+/// </summary>
 namespace XML
 {
     public class InspectionForm
@@ -65,7 +68,7 @@ namespace XML
                                 {
                                     if (cell.Range.Text.Contains(String.Format("<{0}>", key.Key)))
                                     {
-                                        cell.Range.Text = key.Value;
+                                        cell.Range.Text += key.Value;
                                         foundElements[k].Remove(key.Key);
                                         break;
                                     }
@@ -139,6 +142,7 @@ namespace XML
                     break;
                 case "im builders risk":
                     fileName = root + @"\Template\imbuildersriskdataelements.doc";
+                    InitializeInspectionForm();
                     break;
                 case "GL Rec Letter":
                     fileName = root + @"\Template\GLRecLetter.doc";
@@ -153,9 +157,15 @@ namespace XML
                     break;
                 case "BI Addendum":
                     fileName = root + @"\Template\BIADDENDUM.doc";
+                    if (XmlBuilder.BI != null)
+                        foundElements.Add(XmlBuilder.BI);
+                    InitializeInspectionForm();
                     break;
                 case "Operations Addendum":
                     fileName = root + @"\Template\OPERATIONSADDENDUM.doc";
+                    if (XmlBuilder.Operations != null)
+                        foundElements.Add(XmlBuilder.Operations);
+                    InitializeInspectionForm();
                     break;
                 case "Property Rec Letter":
                     fileName = root + @"\Template\PropertyRecLetter.doc";
@@ -188,6 +198,9 @@ namespace XML
                     break;
                 case "Wind Addendum":
                     fileName = root + @"\Template\WindAddendum.docx";
+                    if (XmlBuilder.Wind != null)
+                        foundElements.Add(XmlBuilder.Wind);
+                    InitializeInspectionForm();
                     break;
                 default:
                     break;
