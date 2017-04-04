@@ -133,17 +133,6 @@ namespace XML
                         break;
                 }
             }
-            //for (int i = 0; i < xmlNodes.Count; i++)
-            //{
-            //    if(i == 0)
-            //        InspectionData = GetElements(xmlNodes[i]);
-            //    else if(i == 1)
-            //        Survey = GetElements(xmlNodes[i]);
-
-
-
-            //}
-            
         }
 
         /// <summary>

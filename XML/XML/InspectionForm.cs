@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Word;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace XML
 {
@@ -96,11 +97,11 @@ namespace XML
         private void GetFileName(string form)
         {
             foundElements = new List<Dictionary<string, string>>();
-
+            string root = System.IO.Directory.GetCurrentDirectory();
             switch (form)
             {
                 case "inspection format":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\WKFCInspectionformat.doc";
+                    fileName = root+ @"\Template\WKFCInspectionformat.doc";
                     if (XmlBuilder.InspectionData != null)
                         foundElements.Add(XmlBuilder.InspectionData);
                     if (XmlBuilder.Survey != null)
@@ -137,10 +138,10 @@ namespace XML
                     InitializeInspectionForm();
                     break;
                 case "im builders risk":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\imbuildersriskdataelements.doc";
+                    fileName = root + @"\Template\imbuildersriskdataelements.doc";
                     break;
                 case "GL Rec Letter":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\GLRecLetter.doc";
+                    fileName = root + @"\Template\GLRecLetter.doc";
                     if (XmlBuilder.GLRecommendations != null)
                     {
                         for (int i = 0; i < XmlBuilder.GLRecommendations.Count; i++)
@@ -151,13 +152,13 @@ namespace XML
                     InitializeInspectionForm();
                     break;
                 case "BI Addendum":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\BIADDENDUM.doc";
+                    fileName = root + @"\Template\BIADDENDUM.doc";
                     break;
                 case "Operations Addendum":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\OPERATIONSADDENDUM.doc";
+                    fileName = root + @"\Template\OPERATIONSADDENDUM.doc";
                     break;
                 case "Property Rec Letter":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\PropertyRecLetter.doc";
+                    fileName = root + @"\Template\PropertyRecLetter.doc";
                     if (XmlBuilder.PropertyRecommendations != null)
                     {
                         for (int i = 0; i < XmlBuilder.PropertyRecommendations.Count; i++)
@@ -168,8 +169,7 @@ namespace XML
                     InitializeInspectionForm();
                     break;
                 case "Rec Check Inspection Form":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\RECCHECKINSPECTIONFORM.docx";
-
+                    fileName = root + @"\Template\RECCHECKINSPECTIONFORM.docx";
                     if (XmlBuilder.PropertyRecommendations != null)
                     {
                         for (int i = 0; i < XmlBuilder.PropertyRecommendations.Count; i++)
@@ -187,7 +187,7 @@ namespace XML
                     InitializeInspectionForm();
                     break;
                 case "Wind Addendum":
-                    fileName = @"C:\Users\along\Documents\GitHub\InspectionsXMLBuilder\XML\XML\WindAddendum.docx";
+                    fileName = root + @"\Template\WindAddendum.docx";
                     break;
                 default:
                     break;
