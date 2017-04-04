@@ -52,7 +52,7 @@ namespace XML
                 if (!file.ToString().Substring(file.ToString().Length - 3, 3).Equals("xml"))
                     ErrorExceptions.OnException("please select a file with .xml extension");
                 else
-                    ErrorExceptions.OnException(ex.Message);
+                    ErrorExceptions.OnException(ex.StackTrace);
             }
 
         }
